@@ -1,10 +1,11 @@
 extends Node2D
 
-export var speed = 400
-
+var health
+var speed
 
 func _ready():
-	pass
+	health = Upgrades.health
+	speed = Upgrades.speed
 
 func _process(delta):
 	processMovement(delta)
