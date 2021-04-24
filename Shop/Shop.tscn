@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Shop/Shop.gd" type="Script" id=1]
-[ext_resource path="res://Game/CoinMeter.gd" type="Script" id=2]
+[ext_resource path="res://Shop/CoinMeter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shop/FireRate.gd" type="Script" id=3]
+[ext_resource path="res://Shop/Health.gd" type="Script" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -22,21 +24,28 @@ __meta__ = {
 }
 
 [node name="FireRate" type="Button" parent="."]
-margin_left = 756.685
-margin_top = 188.417
-margin_right = 821.685
-margin_bottom = 208.417
+margin_left = 800.0
+margin_top = 211.0
+margin_right = 900.0
+margin_bottom = 231.0
 text = "Fire rate"
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CoinMeter" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-script = ExtResource( 2 )
+[node name="Health" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 400.0
+margin_bottom = 220.0
+text = "Health"
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CoinMeter" parent="." instance=ExtResource( 2 )]
 [connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="FireRate" to="." method="_on_FireRate_pressed"]
+[connection signal="pressed" from="Health" to="." method="_on_Health_pressed"]
