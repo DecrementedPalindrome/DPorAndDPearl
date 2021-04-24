@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PirateSubmarines.wav-b2d466a320e6b50e47f1b4259274e805.sample"
+
+[deps]
+
+source_file="res://Assets/PirateSubmarines.wav"
+dest_files=[ "res://.import/PirateSubmarines.wav-b2d466a320e6b50e47f1b4259274e805.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
