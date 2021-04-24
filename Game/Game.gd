@@ -7,6 +7,11 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if $Player.health <= 0:
+		get_tree().change_scene("res://Shop/Shop.tscn")
+		
+	update_health()
+
+func update_health():
+	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health)

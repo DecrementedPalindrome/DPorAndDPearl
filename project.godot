@@ -21,6 +21,7 @@ run/main_scene="res://Menu/Menu.tscn"
 [autoload]
 
 Upgrades="*res://Game/Upgrades.gd"
+Global="*res://Game/global.gd"
 
 [display]
 

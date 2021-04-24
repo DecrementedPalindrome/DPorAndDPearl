@@ -11,3 +11,6 @@ func set_player(var player):
 func _process(delta):
 	if position.distance_to(Player.position) > 1000:
 		queue_free()
+
+func destroy():
+	queue_free()

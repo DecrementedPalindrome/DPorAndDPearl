@@ -30,6 +30,8 @@ func spawn_wave():
 				mine.position = player_position + Vector2(rand_range(-700, 700), rand_range(400, 600))
 			3:
 				mine.position = player_position + Vector2(rand_range(-700, -900), rand_range(-400, 400))
+		if mine.position.y <= 50 || mine.position.y >= Global.ocean_depth - 50:
+			mine.queue_free()
 
 
 
