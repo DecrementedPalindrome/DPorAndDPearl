@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Shop/Shop.gd" type="Script" id=1]
+[ext_resource path="res://Game/CoinMeter.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,4 +20,20 @@ text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FireRate" type="Button" parent="."]
+margin_left = 756.685
+margin_top = 188.417
+margin_right = 821.685
+margin_bottom = 208.417
+text = "Fire rate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinMeter" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+script = ExtResource( 2 )
 [connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="FireRate" to="." method="_on_FireRate_pressed"]

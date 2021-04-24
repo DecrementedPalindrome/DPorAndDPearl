@@ -14,4 +14,4 @@ func _process(delta):
 	update_health()
 
 func update_health():
-	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health)
+	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health[Upgrades.health_level].value)
