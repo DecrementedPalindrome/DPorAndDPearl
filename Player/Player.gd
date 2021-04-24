@@ -44,7 +44,7 @@ func processMovement(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
-	position.y = clamp(position.y, 0, Global.ocean_depth-30)
+	position.y = clamp(position.y, 0, Upgrades.max_depth[Upgrades.max_depth_level].value-30)
 	position.x = clamp(position.x, -5000, 5000)
 
 func spawn_bullet():

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Explosion1.wav" type="AudioStream" id=1]
+[ext_resource path="res://Enemies/Explosions/Explosion1.gd" type="Script" id=2]
+
+[node name="Explosion1" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
