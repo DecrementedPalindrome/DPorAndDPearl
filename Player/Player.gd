@@ -6,6 +6,8 @@ export (PackedScene) var Bullet
 
 var Game
 
+const bullet_spread = 0.25 # Radians
+
 var health
 var speed
 
@@ -48,11 +50,14 @@ func processMovement(delta):
 	position.x = clamp(position.x, -5000, 5000)
 
 func spawn_bullet():
-	var bullet = Bullet.instance()
-	Game.call_deferred("add_child",bullet)
-	bullet.position = position
-	bullet.linear_velocity = (get_viewport().get_mouse_position()-Vector2(600, 350)).normalized() * Upgrades.speed[Upgrades.speed_level].value*3
-	bullet.set_player(self)
+	var num_bullets = Upgrades.num_bullets[Upgrades.num_bullets_level].value
+	for i in range(num_bullets):
+		var bullet = Bullet.instance()
+		Game.call_deferred("add_child",bullet)
+		bullet.position = position
+		bullet.linear_velocity = (get_viewport().get_mouse_position()-Vector2(600, 350)).normalized() * Upgrades.speed[Upgrades.speed_level].value*3
+		bullet.linear_velocity = bullet.linear_velocity.rotated((bullet_spread * (i+1)/(num_bullets+1) ) - (bullet_spread/2))
+		bullet.set_player(self)
 
 func hit():
 	if damage_timer <= 0:

@@ -19,7 +19,8 @@ func update_health():
 func update_oxygen(delta):
 	oxygen -= delta
 	if $Player.position.y < 10 && oxygen < Upgrades.oxygen[Upgrades.oxygen_level].value:
-		oxygen = clamp(oxygen + delta * 5, 0, Upgrades.oxygen[Upgrades.oxygen_level].value)
+		var refill_rate = Upgrades.oxygen[Upgrades.oxygen_level].value / 5 # 5 Seconds for a full refill
+		oxygen = clamp(oxygen + delta * refill_rate, 0, Upgrades.oxygen[Upgrades.oxygen_level].value)
 	$HUD/OxygenBar/Oxygen.rect_size.x = 350 * (oxygen / Upgrades.oxygen[Upgrades.oxygen_level].value)
 	if oxygen < 0:
 		end_game()

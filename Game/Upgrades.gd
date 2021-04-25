@@ -23,6 +23,8 @@ var fire_rate = [#Per second
 	CostValue.new(250, 0.08)
 ]
 
+#Max depth upgrade disabled
+#It felt too arbritrary and the oxygen limit does a similar thing anyway
 var max_depth = [#Pixels
 	CostValue.new(0,  Global.ocean_depth)#,
 	#CostValue.new(20, 3000),
@@ -31,7 +33,7 @@ var max_depth = [#Pixels
 ]
 
 var num_bullets = [#Per shot
-	CostValue.new(0,  1),
+	CostValue.new(0, 1),
 	CostValue.new(150, 2),
 	CostValue.new(400, 3)
 ]

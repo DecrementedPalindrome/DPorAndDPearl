@@ -3,7 +3,7 @@ extends Enemy
 export (PackedScene) var Explosion
 
 func _ready():
-	health_set(2.0)
+	health_set(4.0)
 	worth_set(1)
 
 func _process(delta):
