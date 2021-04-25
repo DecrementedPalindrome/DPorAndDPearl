@@ -25,19 +25,19 @@ func get_level():
 func get_max_level():
 	match type:
 		"Health":
-			return Upgrades.health.size()
+			return Upgrades.health.size() - 1
 		"FireRate":
-			return Upgrades.fire_rate.size()
+			return Upgrades.fire_rate.size() - 1
 		"Damage":
-			return Upgrades.damage.size()
+			return Upgrades.damage.size() - 1
 		"Speed":
-			return Upgrades.speed.size()
+			return Upgrades.speed.size() - 1
 		"Oxygen":
-			return Upgrades.oxygen.size()
+			return Upgrades.oxygen.size() - 1
 		"Bullets":
-			return Upgrades.num_bullets.size()
+			return Upgrades.num_bullets.size() - 1
 		"Depth":
-			return Upgrades.max_depth.size()
+			return Upgrades.max_depth.size() - 1
 
 func set_level(new_level):
 	match type:
