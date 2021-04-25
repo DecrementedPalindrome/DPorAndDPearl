@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Menu/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Play.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Assets/ExplodingMine.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Mine.png" type="Texture" id=12]
 [ext_resource path="res://Assets/MenuBackground.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Submarine.png" type="Texture" id=14]
+[ext_resource path="res://Assets/FastTorpedo.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -22,6 +24,10 @@ font_data = ExtResource( 7 )
 size = 72
 font_data = ExtResource( 7 )
 
+[sub_resource type="CircleShape2D" id=4]
+
+[sub_resource type="CircleShape2D" id=3]
+
 [node name="Menu" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -29,6 +35,7 @@ script = ExtResource( 8 )
 texture = ExtResource( 13 )
 
 [node name="PlayButton" type="TextureButton" parent="."]
+visible = false
 margin_left = 500.0
 margin_top = 450.0
 margin_right = 700.0
@@ -41,6 +48,7 @@ __meta__ = {
 }
 
 [node name="HelpButton" type="TextureButton" parent="."]
+visible = false
 margin_left = 500.0
 margin_top = 550.0
 margin_right = 700.0
@@ -122,5 +130,39 @@ position = Vector2( 1048.01, 350.693 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 12 )
 script = ExtResource( 10 )
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 551.254, 380.599 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+scale = Vector2( 4, 4 )
+z_index = 1
+texture = ExtResource( 14 )
+
+[node name="Hitbox" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 5
+
+[node name="Hitbox2" type="CollisionShape2D" parent="Player/Hitbox"]
+visible = false
+scale = Vector2( 3, 3 )
+shape = SubResource( 4 )
+
+[node name="FastTorpedo" type="RigidBody2D" parent="."]
+position = Vector2( 350, 450 )
+rotation = -0.349066
+scale = Vector2( 3, 3 )
+collision_mask = 2
+mode = 1
+gravity_scale = 0.0
+
+[node name="Sprite" type="Sprite" parent="FastTorpedo"]
+texture = ExtResource( 15 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="FastTorpedo"]
+scale = Vector2( 0.6, 0.6 )
+shape = SubResource( 3 )
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="HelpButton" to="HelpButton" method="_on_HelpButton_pressed"]
+[connection signal="body_entered" from="Player/Hitbox" to="Player" method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="FastTorpedo" to="FastTorpedo" method="_on_Mine_body_entered"]
