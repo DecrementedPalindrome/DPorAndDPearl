@@ -18,12 +18,25 @@ func update_health():
 
 func update_oxygen(delta):
 	oxygen -= delta
+	var breathing = false
 	if $Player.position.y < 10 && oxygen < Upgrades.oxygen[Upgrades.oxygen_level].value:
+		breathing = true
 		var refill_rate = Upgrades.oxygen[Upgrades.oxygen_level].value / 5 # 5 Seconds for a full refill
 		oxygen = clamp(oxygen + delta * refill_rate, 0, Upgrades.oxygen[Upgrades.oxygen_level].value)
 	$HUD/OxygenBar/Oxygen.rect_size.x = 350 * (oxygen / Upgrades.oxygen[Upgrades.oxygen_level].value)
 	if oxygen < 0:
 		end_game()
+	#Play warning sound
+	if oxygen < 6 && !breathing:
+		if oxygen < 2:
+			$HUD/OxygenWarningCritical.play()
+		else:
+			if $HUD/OxygenWarning.playing == false:
+				$HUD/OxygenWarning.play()
+	if $HUD/OxygenWarning.playing == true && (oxygen >= 6 || breathing):
+		$HUD/OxygenWarning.stop()
+	if $HUD/OxygenWarningCritical.playing == true && (oxygen >= 2 || breathing):
+		$HUD/OxygenWarningCritical.stop()
 
 func end_game():
 	get_tree().change_scene("res://Shop/Shop.tscn")
