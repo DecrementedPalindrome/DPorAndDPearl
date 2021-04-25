@@ -131,9 +131,11 @@ region_rect = Rect2( -20000, 0, 100000, 200 )
 
 [node name="OxygenWarning" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource( 15 )
+volume_db = -6.0
 
 [node name="OxygenWarningCritical" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource( 16 )
+volume_db = -4.0
 
 [node name="WinLabel" type="Label" parent="HUD"]
 visible = false
