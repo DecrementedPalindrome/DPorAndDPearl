@@ -3,6 +3,7 @@ extends Node2D
 var oxygen
 
 var win_time = 0
+var death_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,13 +14,17 @@ func _process(delta):
 	update_health()
 	update_oxygen(delta)
 	
+	#Leave the win screen up for 10 seconds
 	if win_time != 0 && OS.get_ticks_msec() > win_time + 10000:
 		get_tree().change_scene("res://Menu/Menu.tscn")
+	#Leave the death explosion up for 1 second
+	if death_time != 0 && OS.get_ticks_msec() > death_time + 1000:
+		end_game()
 
 func update_health():
 	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health[Upgrades.health_level].value)
-	if $Player.health <= 0:
-		end_game()
+	if $Player.health <= 0 && death_time == 0:
+		death_time = OS.get_ticks_msec()
 
 func update_oxygen(delta):
 	oxygen -= delta
@@ -32,15 +37,15 @@ func update_oxygen(delta):
 	if oxygen < 0:
 		$Player.hit()
 	#Play warning sound
-	if oxygen < 6 && !breathing:
+	if oxygen < 6 && !breathing && !($Player.health <= 0):
 		if oxygen < 2:
 			$HUD/OxygenWarningCritical.play()
 		else:
 			if $HUD/OxygenWarning.playing == false:
 				$HUD/OxygenWarning.play()
-	if $HUD/OxygenWarning.playing == true && (oxygen >= 6 || breathing):
+	if $HUD/OxygenWarning.playing == true && (oxygen >= 6 || breathing || $Player.health <= 0):
 		$HUD/OxygenWarning.stop()
-	if $HUD/OxygenWarningCritical.playing == true && (oxygen >= 2 || breathing):
+	if $HUD/OxygenWarningCritical.playing == true && (oxygen >= 2 || breathing || $Player.health <= 0):
 		$HUD/OxygenWarningCritical.stop()
 
 func end_game():

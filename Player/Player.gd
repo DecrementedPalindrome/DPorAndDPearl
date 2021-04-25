@@ -3,6 +3,7 @@ extends Node2D
 export (NodePath) var game_path
 
 export (PackedScene) var Bullet
+export (PackedScene) var Explosion
 
 var Game
 
@@ -16,17 +17,20 @@ var last_bullet_shot = 0
 #Number of seconds until the player can be hit again
 var damage_timer = 0
 
+var destroyed = 0
+
 func _ready():
 	Game = get_node(game_path)
 	health = Upgrades.health[Upgrades.health_level].value
 	speed = Upgrades.speed
 
 func _process(delta):
-	processMovement(delta)
-	if (last_process_time + delta) > (last_bullet_shot + Upgrades.fire_rate[Upgrades.fire_rate_level].value):
-		spawn_bullet()
-		last_bullet_shot = last_process_time + delta
-	last_process_time += delta
+	if health > 0:
+		processMovement(delta)
+		if (last_process_time + delta) > (last_bullet_shot + Upgrades.fire_rate[Upgrades.fire_rate_level].value):
+			spawn_bullet()
+			last_bullet_shot = last_process_time + delta
+		last_process_time += delta
 	
 	if damage_timer > 0:
 		visible = fmod(damage_timer, 0.05) > 0.025
@@ -64,6 +68,12 @@ func hit():
 	if damage_timer <= 0:
 		health -= 1
 		damage_timer = 1
+	if health == 0 && destroyed == 0:
+		var explosion = Explosion.instance()
+		var Game = get_node("..")
+		Game.add_child(explosion)
+		explosion.position = position
+		destroyed = 1
 
 func _on_Hitbox_body_entered(body):
 	body.destroy()
