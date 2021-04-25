@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Mine.tscn" type="PackedScene" id=2]
@@ -20,6 +20,10 @@
 [ext_resource path="res://Assets/Pearl.png" type="Texture" id=18]
 [ext_resource path="res://Bullets/PlayerBullet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/Font/PixelPirateRegular-PXYZ.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Assets/HealthProgress.png" type="Texture" id=21]
+[ext_resource path="res://Assets/ProgressBackground.png" type="Texture" id=22]
+[ext_resource path="res://Assets/ProgressOver.png" type="Texture" id=23]
+[ext_resource path="res://Assets/OxygenProgress.png" type="Texture" id=24]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -120,53 +124,6 @@ region_rect = Rect2( -20000, 0, 100000, 200 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" type="ColorRect" parent="HUD"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -400.0
-margin_top = 40.0
-margin_right = -30.0
-margin_bottom = 90.0
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Health" type="ColorRect" parent="HUD/HealthBar"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -360.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 40.0
-color = Color( 1, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OxygenBar" type="ColorRect" parent="HUD"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -400.0
-margin_top = 90.0
-margin_right = -29.9999
-margin_bottom = 115.0
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Oxygen" type="ColorRect" parent="HUD/OxygenBar"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -360.0
-margin_right = -10.0
-margin_bottom = 15.0
-color = Color( 0.0627451, 0.941176, 0.941176, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CoinMeter" parent="HUD" instance=ExtResource( 10 )]
 
 [node name="OxygenWarning" type="AudioStreamPlayer" parent="HUD"]
@@ -184,6 +141,32 @@ text = "Congratulations!
 You have fought off the navy and claimed the pearl"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="HUD"]
+margin_left = 810.0
+margin_top = 40.0
+margin_right = 1170.0
+margin_bottom = 76.0
+max_value = 1000.0
+texture_under = ExtResource( 22 )
+texture_over = ExtResource( 23 )
+texture_progress = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OxygenBar" type="TextureProgress" parent="HUD"]
+margin_left = 810.0
+margin_top = 85.0
+margin_right = 1170.0
+margin_bottom = 121.0
+max_value = 1000.0
+texture_under = ExtResource( 22 )
+texture_over = ExtResource( 23 )
+texture_progress = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -209,7 +192,7 @@ z_index = -1
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2/Sky"]
 material = SubResource( 3 )
-position = Vector2( 0.000150732, 0 )
+position = Vector2( 0.477486, -0.477325 )
 scale = Vector2( 0.997747, 1.00244 )
 texture = ExtResource( 3 )
 region_enabled = true

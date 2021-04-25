@@ -22,7 +22,7 @@ func _process(delta):
 		end_game()
 
 func update_health():
-	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health[Upgrades.health_level].value)
+	$HUD/HealthBar.value = $HUD/HealthBar.max_value * (float($Player.health) / Upgrades.health[Upgrades.health_level].value)
 	if $Player.health <= 0 && death_time == 0:
 		death_time = OS.get_ticks_msec()
 
@@ -33,7 +33,7 @@ func update_oxygen(delta):
 		breathing = true
 		var refill_rate = Upgrades.oxygen[Upgrades.oxygen_level].value / 3 # 3 Seconds for a full refill
 		oxygen = clamp(oxygen + delta * refill_rate, 0, Upgrades.oxygen[Upgrades.oxygen_level].value)
-	$HUD/OxygenBar/Oxygen.rect_size.x = 350 * (oxygen / Upgrades.oxygen[Upgrades.oxygen_level].value)
+	$HUD/OxygenBar.value = $HUD/OxygenBar.max_value * (oxygen / Upgrades.oxygen[Upgrades.oxygen_level].value)
 	if oxygen < 0:
 		$Player.hit()
 	#Play warning sound
