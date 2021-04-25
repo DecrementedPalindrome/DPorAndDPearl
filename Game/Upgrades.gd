@@ -25,9 +25,9 @@ var fire_rate = [#Per second
 
 var max_depth = [#Pixels
 	CostValue.new(0,  800),
-	CostValue.new(50, 3000),
-	CostValue.new(200, 8000),
-	CostValue.new(500, Global.ocean_depth)
+	CostValue.new(20, 3000),
+	CostValue.new(100, 8000),
+	CostValue.new(250, Global.ocean_depth)
 ]
 
 var num_bullets = [#Per shot

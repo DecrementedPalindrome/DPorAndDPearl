@@ -7,7 +7,11 @@ var Game
 
 func _ready():
 	health_set(4.0)
+	worth_set(2)
 	Game = get_node("..")
+
+func _physics_process(delta):
+	position.y += sin((position.x/2 + OS.get_ticks_msec()) / 1000) * delta * 10
 
 func destroy():
 	var explosion = Explosion.instance()
