@@ -106,16 +106,6 @@ FastTorpedo = ExtResource( 14 )
 [node name="WaveTimer" type="Timer" parent="Spawner"]
 autostart = true
 
-[node name="Sky" type="Node2D" parent="."]
-position = Vector2( 0, -300 )
-scale = Vector2( 10000, 1 )
-z_index = -1
-
-[node name="Sprite" type="Sprite" parent="Sky"]
-material = SubResource( 3 )
-position = Vector2( 0.000150732, 0 )
-texture = ExtResource( 3 )
-
 [node name="Floor" type="Node2D" parent="."]
 position = Vector2( 0, 10000 )
 scale = Vector2( 3, 3 )
@@ -206,7 +196,24 @@ motion_scale = Vector2( 0.08, 0.11 )
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 0, 530 )
 scale = Vector2( 3, 3 )
+z_index = -1
 texture = ExtResource( 9 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+
+[node name="Sky" type="Node2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 1, -299 )
+scale = Vector2( 3, 3 )
+z_index = -1
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2/Sky"]
+material = SubResource( 3 )
+position = Vector2( 0.000150732, 0 )
+scale = Vector2( 0.997747, 1.00244 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -200100, 0, 100000, 200 )
 
 [node name="Pearl" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
