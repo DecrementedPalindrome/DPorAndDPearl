@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/BackPressed.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Back.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/SpeedPressed.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Speed.png" type="Texture" id=9]
 [ext_resource path="res://Shop/UpgradeButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Menu/Background.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -26,6 +27,8 @@ font_data = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background" parent="." instance=ExtResource( 11 )]
 
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 500.0
@@ -47,7 +50,7 @@ margin_bottom = 565.0
 theme = SubResource( 2 )
 text = "Dreadnought Parlance (that's you) has finally discovered the location of the long lost magic pearl amongst the sands of the ocean floor. Unfortunately you aren't the only one here - the imperial navy has followed you! With a limitless supply of mines, torpedoes, and who knows what else, they won't make recovering that pearl easy.
 
-Guide the submarine through anything that stands in your way and claim what rightfully belongs to noone!"
+Guide the submarine through anything that stands in your way and claim what rightfully belongs to no-one!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

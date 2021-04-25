@@ -11,5 +11,5 @@ func set_player(var player):
 	Player = player
 
 func _process(delta):
-	if position.distance_to(Player.position) > 1000 || position.y < 0:
+	if position.distance_to(Player.position) > 1000 || position.y < 0 || position.y > Global.ocean_depth:
 		queue_free()

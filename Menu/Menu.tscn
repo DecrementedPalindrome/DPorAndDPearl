@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Menu/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Play.png" type="Texture" id=2]
@@ -6,8 +6,25 @@
 [ext_resource path="res://Menu/HelpButton.gd" type="Script" id=4]
 [ext_resource path="res://Assets/HelpPressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Help.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Font/PixelPirateRegular-PXYZ.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=8]
+[ext_resource path="res://Menu/Background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu/MineBob.gd" type="Script" id=10]
+[ext_resource path="res://Assets/ExplodingMine.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Mine.png" type="Texture" id=12]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+font_data = ExtResource( 7 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Background" parent="." instance=ExtResource( 9 )]
 
 [node name="PlayButton" type="TextureButton" parent="."]
 margin_left = 500.0
@@ -32,5 +49,76 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FirstTitle" type="Label" parent="."]
+margin_right = 1200.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dreadnought Parlance
+& the Magic Pearl"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FirstTitle2" type="Label" parent="FirstTitle"]
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 1196.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 1 )
+text = "Dreadnought Parlance
+& the Magic Pearl"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondTitle" type="Label" parent="."]
+visible = false
+margin_right = 1200.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "D.Par and de Pearl"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecondTitle2" type="Label" parent="SecondTitle"]
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 1195.0
+margin_bottom = 295.0
+custom_fonts/font = SubResource( 2 )
+text = "D.Par and de Pearl"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mine1" type="Sprite" parent="."]
+position = Vector2( 180, 320 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+script = ExtResource( 10 )
+
+[node name="Mine2" type="Sprite" parent="."]
+position = Vector2( 851.573, 482.061 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+script = ExtResource( 10 )
+
+[node name="Mine3" type="Sprite" parent="."]
+position = Vector2( 1048.01, 350.693 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+script = ExtResource( 10 )
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="HelpButton" to="HelpButton" method="_on_HelpButton_pressed"]
