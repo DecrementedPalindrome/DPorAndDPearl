@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="DPorAndDPearl"
 run/main_scene="res://Menu/Menu.tscn"
+config/icon="res://Assets/Mine.png"
 
 [autoload]
 
