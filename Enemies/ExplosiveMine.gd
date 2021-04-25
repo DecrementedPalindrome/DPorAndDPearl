@@ -6,7 +6,7 @@ export (PackedScene) var DestructonBullet
 var Game
 
 func _ready():
-	health_set(4.0)
+	health_set(3.0)
 	worth_set(2)
 	Game = get_node("..")
 

@@ -96,10 +96,11 @@ normal = ExtResource( 18 )
 pressed = ExtResource( 17 )
 
 [node name="Depth" parent="." instance=ExtResource( 3 )]
+visible = false
 margin_left = 450.0
-margin_top = 450.0
+margin_top = -200.0
 margin_right = 490.0
-margin_bottom = 490.0
+margin_bottom = -160.0
 type = "Depth"
 normal = ExtResource( 14 )
 pressed = ExtResource( 19 )
