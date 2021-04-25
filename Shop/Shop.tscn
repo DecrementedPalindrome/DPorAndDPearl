@@ -40,9 +40,9 @@ __meta__ = {
 }
 
 [node name="FireRate" parent="." instance=ExtResource( 3 )]
-margin_left = 800.0
+margin_left = 750.0
 margin_top = 150.0
-margin_right = 840.0
+margin_right = 790.0
 margin_bottom = 190.0
 type = "FireRate"
 normal = ExtResource( 6 )
@@ -51,54 +51,54 @@ pressed = ExtResource( 7 )
 [node name="CoinMeter" parent="." instance=ExtResource( 2 )]
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
-margin_left = 200.0
+margin_left = 150.0
 margin_top = 150.0
-margin_right = 240.0
+margin_right = 190.0
 margin_bottom = 190.0
 type = "Health"
 normal = ExtResource( 5 )
 pressed = ExtResource( 8 )
 
 [node name="Speed" parent="." instance=ExtResource( 3 )]
-margin_left = 200.0
+margin_left = 150.0
 margin_top = 250.0
-margin_right = 240.0
+margin_right = 190.0
 margin_bottom = 290.0
 type = "Speed"
 normal = ExtResource( 4 )
 pressed = ExtResource( 11 )
 
 [node name="Damage" parent="." instance=ExtResource( 3 )]
-margin_left = 800.0
+margin_left = 750.0
 margin_top = 250.0
-margin_right = 840.0
+margin_right = 790.0
 margin_bottom = 290.0
 type = "Damage"
 normal = ExtResource( 12 )
 pressed = ExtResource( 13 )
 
 [node name="Oxygen" parent="." instance=ExtResource( 3 )]
-margin_left = 200.0
+margin_left = 150.0
 margin_top = 350.0
-margin_right = 240.0
+margin_right = 190.0
 margin_bottom = 390.0
 type = "Oxygen"
 normal = ExtResource( 15 )
 pressed = ExtResource( 16 )
 
 [node name="Bullets" parent="." instance=ExtResource( 3 )]
-margin_left = 800.0
+margin_left = 750.0
 margin_top = 350.0
-margin_right = 840.0
+margin_right = 790.0
 margin_bottom = 390.0
 type = "Bullets"
 normal = ExtResource( 18 )
 pressed = ExtResource( 17 )
 
 [node name="Depth" parent="." instance=ExtResource( 3 )]
-margin_left = 500.0
+margin_left = 450.0
 margin_top = 450.0
-margin_right = 540.0
+margin_right = 490.0
 margin_bottom = 490.0
 type = "Depth"
 normal = ExtResource( 14 )

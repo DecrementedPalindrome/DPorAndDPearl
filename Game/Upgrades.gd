@@ -24,7 +24,7 @@ var fire_rate = [#Per second
 ]
 
 var max_depth = [#Pixels
-	CostValue.new(0,  800),
+	CostValue.new(0,  1000),
 	CostValue.new(20, 3000),
 	CostValue.new(100, 8000),
 	CostValue.new(250, Global.ocean_depth)
