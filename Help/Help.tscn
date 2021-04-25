@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/BackPressed.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Back.png" type="Texture" id=2]
 [ext_resource path="res://Help/Back.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Font/PixelPirateRegular-PXYZ.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/ExplodingMine.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Torpedo.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Submarine.png" type="Texture" id=7]
+[ext_resource path="res://Assets/SpeedPressed.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Speed.png" type="Texture" id=9]
+[ext_resource path="res://Shop/UpgradeButton.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+font_data = ExtResource( 4 )
 
 [node name="Help" type="Control"]
 __meta__ = {
@@ -11,10 +29,90 @@ __meta__ = {
 
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 500.0
-margin_top = 550.0
+margin_top = 575.0
 margin_right = 700.0
-margin_bottom = 600.0
+margin_bottom = 625.0
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 1 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlavourText" type="RichTextLabel" parent="."]
+margin_left = 61.0
+margin_top = 43.0
+margin_right = 631.0
+margin_bottom = 565.0
+theme = SubResource( 2 )
+text = "Dreadnought Parlance (that's you) has finally discovered the location of the long lost magic pearl amongst the sands of the ocean floor. Unfortunately you aren't the only one here - the imperial navy has followed you! With a limitless supply of mines, torpedoes, and who knows what else, they won't make recovering that pearl easy.
+
+Guide the submarine through anything that stands in your way and claim what rightfully belongs to noone!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submarine" type="Sprite" parent="."]
+position = Vector2( 920.82, 95.5506 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+
+[node name="Mine" type="Sprite" parent="."]
+position = Vector2( 1022.85, 232.948 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="Torpedo" type="Sprite" parent="."]
+position = Vector2( 825.594, 226.146 )
+rotation = -0.872665
+scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="MovementInstructions" type="Label" parent="."]
+margin_left = 675.0
+margin_top = 141.803
+margin_right = 1175.0
+margin_bottom = 167.803
+custom_fonts/font = SubResource( 3 )
+text = "W, A, S, D or arrows  to move"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeInstructions" type="Label" parent="."]
+margin_left = 675.0
+margin_top = 458.771
+margin_right = 1175.0
+margin_bottom = 513.771
+custom_fonts/font = SubResource( 3 )
+text = "Use the resources you have
+collected to upgrade your submarine"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyInstructions" type="Label" parent="."]
+margin_left = 675.0
+margin_top = 290.084
+margin_right = 1175.0
+margin_bottom = 374.084
+custom_fonts/font = SubResource( 3 )
+text = "Avoid the enemies and destroy
+them with your bubble cannon
+to collect resources"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton" parent="." instance=ExtResource( 10 )]
+margin_left = 763.017
+margin_top = 390.752
+margin_right = 803.017
+margin_bottom = 430.752
+type = "Speed"
+normal = ExtResource( 9 )
+pressed = ExtResource( 8 )
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
