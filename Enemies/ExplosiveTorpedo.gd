@@ -10,8 +10,9 @@ func _ready():
 	worth_set(2)
 	Game = get_node("..")
 
-func _physics_process(delta):
-	position.y += sin((position.x/2 + OS.get_ticks_msec()) / 1000) * delta * 10
+func _process(delta):
+	look_at(Player.position)
+	move_local_x(1)
 
 func destroy():
 	var explosion = Explosion.instance()
@@ -21,14 +22,10 @@ func destroy():
 	.destroy()
 
 func spawn_bullets():
-	spawn_bullet(Vector2(0, 1))
-	spawn_bullet(Vector2(1, 1))
-	spawn_bullet(Vector2(1, 0))
-	spawn_bullet(Vector2(1, -1))
-	spawn_bullet(Vector2(0, -1))
-	spawn_bullet(Vector2(-1, -1))
-	spawn_bullet(Vector2(-1, 0))
-	spawn_bullet(Vector2(-1, 1))
+	var forward_vector = Player.position-position
+	spawn_bullet(forward_vector)
+	spawn_bullet(forward_vector.rotated(0.2))
+	spawn_bullet(forward_vector.rotated(-0.2))
 
 func spawn_bullet(direction):
 	var bullet = DestructonBullet.instance()

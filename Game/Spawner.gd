@@ -5,6 +5,7 @@ export (NodePath) var player_path
 export (PackedScene) var Mine
 export (PackedScene) var ExplosiveMine
 export (PackedScene) var Torpedo
+export (PackedScene) var ExplosiveTorpedo
 
 var Game
 var Player
@@ -60,9 +61,17 @@ func spawn_explosive_mines(var player_position):
 			mine.queue_free()
 
 func spawn_torpedoes(var player_position):
-	#Increase in frequency over time up to max at 30 seconds
-	for i in range(int(rand_range(0, 1.5) + clamp((OS.get_ticks_msec()-starting_time) / 30000, 0, 1))):
-		var torpedo = Torpedo.instance()
+	#Increase in frequency over time up to max at 45 seconds
+	var spawn_amount = int(rand_range(0, 1.5) + clamp((OS.get_ticks_msec()-starting_time) / 30000, 0, 1.5))
+	#From 20 seconds onwards increase the chance to spawn an explosive torpedo.
+	#Guaranteed at 50 seconds
+	var explosive_chance = clamp(((OS.get_ticks_msec()-starting_time) - 20000) / 30000.0, 0, 1)
+	for i in range(spawn_amount):
+		var torpedo
+		if randf() < explosive_chance:
+			torpedo = ExplosiveTorpedo.instance()
+		else:
+			torpedo = Torpedo.instance()
 		Game.call_deferred("add_child",torpedo)
 		torpedo.set_player(Player)
 		var direction = randi()%4

@@ -82,7 +82,8 @@ func calculate_cost():
 	if get_level() >= get_max_level():
 		queue_free()
 		return
-	$Cost.text = str(get_cost())
+	else:
+		$Cost.text = str(get_cost())
 
 
 func _on_Button_pressed():
