@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex"
+path="res://.import/ContinuePressed.png-e33875866ed42d43766a4d30e9a486ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemyBullet.png"
-dest_files=[ "res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex" ]
+source_file="res://Assets/ContinuePressed.png"
+dest_files=[ "res://.import/ContinuePressed.png-e33875866ed42d43766a4d30e9a486ae.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

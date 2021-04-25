@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/FireRate.png" type="Texture" id=2]
+[ext_resource path="res://Assets/FireRatePressed.png" type="Texture" id=3]
+[ext_resource path="res://Shop/UpgradeButton.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Coin1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Font/PixelPirateRegular-PXYZ.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 7 )
+
+[node name="UpgradeButton" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 200.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cost" type="Label" parent="."]
+margin_left = 280.0
+margin_top = 5.0
+margin_right = 1219.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CostCoin" type="TextureRect" parent="Cost"]
+margin_left = -55.0
+margin_top = -3.0
+margin_right = -10.0
+margin_bottom = 42.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

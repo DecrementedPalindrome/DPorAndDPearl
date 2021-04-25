@@ -42,7 +42,7 @@ func processMovement(delta):
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * Upgrades.speed[Upgrades.speed_level].value
 	position += velocity * delta
 	position.y = clamp(position.y, 0, Upgrades.max_depth[Upgrades.max_depth_level].value-30)
 	position.x = clamp(position.x, -5000, 5000)
@@ -51,7 +51,7 @@ func spawn_bullet():
 	var bullet = Bullet.instance()
 	Game.call_deferred("add_child",bullet)
 	bullet.position = position
-	bullet.linear_velocity = (get_viewport().get_mouse_position()-Vector2(600, 350)).normalized() * Upgrades.speed*3
+	bullet.linear_velocity = (get_viewport().get_mouse_position()-Vector2(600, 350)).normalized() * Upgrades.speed[Upgrades.speed_level].value*3
 	bullet.set_player(self)
 
 func hit():

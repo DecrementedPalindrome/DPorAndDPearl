@@ -30,10 +30,39 @@ var max_depth = [#Pixels
 	CostValue.new(500, Global.ocean_depth)
 ]
 
+var num_bullets = [#Per shot
+	CostValue.new(0,  1),
+	CostValue.new(150, 2),
+	CostValue.new(400, 3)
+]
+
+var damage = [#Per bullet
+	CostValue.new(0,  1),
+	CostValue.new(50, 2),
+	CostValue.new(200, 3),
+	CostValue.new(500, 4)
+]
+
+var oxygen = [#Seconds
+	CostValue.new(0,  20),
+	CostValue.new(15, 40),
+	CostValue.new(50, 60),
+	CostValue.new(100, 120),
+	CostValue.new(200, 360)
+]
+
+var speed = [#Pixels per second
+	CostValue.new(0,  250),
+	CostValue.new(30, 300),
+	CostValue.new(75, 350),
+	CostValue.new(200, 400),
+	CostValue.new(450, 450)
+]
+
 var health_level = 0
 var fire_rate_level = 0
-var max_depth_level = 0 
-var num_bullets = 1 #Per shot
-var damage = 1
-var oxygen_time = 20 #Seconds
-var speed = 300 #Pixels per second
+var max_depth_level = 0
+var num_bullets_level = 0
+var damage_level = 0
+var oxygen_level = 0
+var speed_level = 0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex"
+path="res://.import/SpeedPressed.png-8d5d3be7008175144f86c35133360e00.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemyBullet.png"
-dest_files=[ "res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex" ]
+source_file="res://Assets/SpeedPressed.png"
+dest_files=[ "res://.import/SpeedPressed.png-8d5d3be7008175144f86c35133360e00.stex" ]
 
 [params]
 

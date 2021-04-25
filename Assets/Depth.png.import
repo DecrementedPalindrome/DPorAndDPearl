@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex"
+path="res://.import/Depth.png-bc7e79306565efe754c044dc36487bb1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemyBullet.png"
-dest_files=[ "res://.import/EnemyBullet.png-a1a037a48ec1c95215efe49254f0716c.stex" ]
+source_file="res://Assets/Depth.png"
+dest_files=[ "res://.import/Depth.png-bc7e79306565efe754c044dc36487bb1.stex" ]
 
 [params]
 
