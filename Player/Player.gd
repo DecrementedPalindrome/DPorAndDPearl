@@ -13,6 +13,7 @@ var speed
 
 var last_process_time = 0
 var last_bullet_shot = 0
+#Number of seconds until the player can be hit again
 var damage_timer = 0
 
 func _ready():
@@ -47,7 +48,7 @@ func processMovement(delta):
 		velocity = velocity.normalized() * Upgrades.speed[Upgrades.speed_level].value
 	position += velocity * delta
 	position.y = clamp(position.y, 0, Upgrades.max_depth[Upgrades.max_depth_level].value-30)
-	position.x = clamp(position.x, -5000, 5000)
+	position.x = clamp(position.x, -Global.ocean_width/2, Global.ocean_width/2)
 
 func spawn_bullet():
 	var num_bullets = Upgrades.num_bullets[Upgrades.num_bullets_level].value

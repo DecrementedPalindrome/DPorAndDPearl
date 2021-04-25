@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/BackPressed.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Back.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Speed.png" type="Texture" id=9]
 [ext_resource path="res://Shop/UpgradeButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Menu/Background.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/MenuBackground.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -29,6 +30,7 @@ __meta__ = {
 }
 
 [node name="Background" parent="." instance=ExtResource( 11 )]
+texture = ExtResource( 12 )
 
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 500.0

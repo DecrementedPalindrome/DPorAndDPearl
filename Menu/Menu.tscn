@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menu/PlayButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Play.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Menu/MineBob.gd" type="Script" id=10]
 [ext_resource path="res://Assets/ExplodingMine.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Mine.png" type="Texture" id=12]
+[ext_resource path="res://Assets/MenuBackground.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -25,6 +26,7 @@ font_data = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Background" parent="." instance=ExtResource( 9 )]
+texture = ExtResource( 13 )
 
 [node name="PlayButton" type="TextureButton" parent="."]
 margin_left = 500.0

@@ -2,6 +2,8 @@ extends Node2D
 
 var oxygen
 
+var win_time = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	oxygen = Upgrades.oxygen[Upgrades.oxygen_level].value
@@ -10,6 +12,9 @@ func _ready():
 func _process(delta):
 	update_health()
 	update_oxygen(delta)
+	
+	if win_time != 0 && OS.get_ticks_msec() > win_time + 10000:
+		get_tree().change_scene("res://Menu/Menu.tscn")
 
 func update_health():
 	$HUD/HealthBar/Health.rect_size.x = 350 * (float($Player.health) / Upgrades.health[Upgrades.health_level].value)
@@ -25,7 +30,7 @@ func update_oxygen(delta):
 		oxygen = clamp(oxygen + delta * refill_rate, 0, Upgrades.oxygen[Upgrades.oxygen_level].value)
 	$HUD/OxygenBar/Oxygen.rect_size.x = 350 * (oxygen / Upgrades.oxygen[Upgrades.oxygen_level].value)
 	if oxygen < 0:
-		end_game()
+		$Player.hit()
 	#Play warning sound
 	if oxygen < 6 && !breathing:
 		if oxygen < 2:
@@ -40,3 +45,7 @@ func update_oxygen(delta):
 
 func end_game():
 	get_tree().change_scene("res://Shop/Shop.tscn")
+
+func _on_Pearl_win(time):
+	win_time = time
+	$HUD/WinLabel.visible = true
