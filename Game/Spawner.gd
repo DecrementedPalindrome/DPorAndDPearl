@@ -3,6 +3,7 @@ extends Node2D
 export (NodePath) var game_path
 export (NodePath) var player_path
 export (PackedScene) var Mine
+export (PackedScene) var ExplosiveMine
 export (PackedScene) var Torpedo
 
 var Game
@@ -22,7 +23,7 @@ func spawn_wave():
 
 func spawn_mines(var player_position):
 	for i in range(clamp(1000 -player_position.y / 10, 1, 10)):
-		var mine = Mine.instance()
+		var mine = ExplosiveMine.instance()
 		Game.call_deferred("add_child",mine)
 		mine.set_player(Player)
 		var direction = randi()%4
