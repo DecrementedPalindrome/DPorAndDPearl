@@ -35,6 +35,9 @@ margin_right = 400.0
 margin_bottom = -100.0
 rect_scale = Vector2( 3, 3 )
 texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Continue" type="TextureButton" parent="."]
 margin_left = 500.0

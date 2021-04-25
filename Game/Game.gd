@@ -13,6 +13,7 @@ func _ready():
 func _process(delta):
 	update_health()
 	update_oxygen(delta)
+	update_depth()
 	
 	#Leave the win screen up for 10 seconds
 	if win_time != 0 && OS.get_ticks_msec() > win_time + 10000:
@@ -47,6 +48,9 @@ func update_oxygen(delta):
 		$HUD/OxygenWarning.stop()
 	if $HUD/OxygenWarningCritical.playing == true && (oxygen >= 2 || breathing || $Player.health <= 0):
 		$HUD/OxygenWarningCritical.stop()
+
+func update_depth():
+	$HUD/DepthBar.value = $HUD/DepthBar.max_value * (1 - ($Player.position.y / Global.ocean_depth))
 
 func end_game():
 	get_tree().change_scene("res://Shop/Shop.tscn")

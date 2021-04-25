@@ -8,7 +8,7 @@ func _ready():
 
 func _process(delta):
 	look_at(Player.position)
-	move_local_x(250*delta)
+	move_local_x(300*delta)
 
 func destroy():
 	var explosion = Explosion.instance()
