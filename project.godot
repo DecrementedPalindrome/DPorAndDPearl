@@ -26,9 +26,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name="DPorAndDPearl"
+config/name="DParAndDePearl"
 run/main_scene="res://Menu/Menu.tscn"
+boot_splash/image="res://Extras/CoverImage.png"
 config/icon="res://Assets/Mine.png"
+config/macos_native_icon="res://Extras/mine_icon.ico"
+config/windows_native_icon="res://Extras/mine_icon.ico"
 
 [autoload]
 
